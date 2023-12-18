@@ -10,20 +10,20 @@ const btnScanQR = document.getElementById("btn-scan-qr");
 
 let scanning = false;
 
-// _qrcode.callback = res => {
-//   if (res) {
-//     outputData.innerText = res;
-//     scanning = false;
+_qrcode.callback = res => {
+  if (res) {
+    outputData.innerText = res;
+    scanning = false;
 
-//     video.srcObject.getTracks().forEach(track => {
-//       track.stop();
-//     });
+    video.srcObject.getTracks().forEach(track => {
+      track.stop();
+    });
 
-//     qrResult.hidden = false;
-//     canvasElement.hidden = true;
-//     btnScanQR.hidden = false;
-//   }
-// };
+    qrResult.hidden = false;
+    canvasElement.hidden = true;
+    btnScanQR.hidden = false;
+  }
+};
 
 btnScanQR.onclick = () => {
   navigator.mediaDevices
