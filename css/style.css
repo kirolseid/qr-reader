@@ -1,9 +1,23 @@
-body, input {font-size:14pt}
-input, label {vertical-align:middle}
-.qrcode-text {padding-right:1.7em; margin-right:.0}
+.botaoPadrao > div {
+ color: #fff !important;
+ background-color: #337ab7 !important;
+ border-color: #2e6da4 !important;
+ text-shadow: none !important;
+ font-weight: normal;
+ overflow: visible;
+}
 
-/*QR Code Button*/
-.qrcode-text-btn {display:inline-block; background:url(//dab1nmslvvntp.cloudfront.net/wp-content/uploads/2017/07/1499401426qr_icon.svg) 50% 50% no-repeat; height:1em; width:1.7em; margin-left:-1.9em; cursor:pointer}
-.qrcode-text-btn > input[type=file] {position:absolute; overflow:hidden; width:1px; height:1px; opacity:0}
 
-.button {height:10px;}
+.botaoVerde > div {
+background-color: #5cb85c !important;
+border-color: #4cae4c !important;        
+}
+
+.botaoVermelho > div {
+background-color: #d9534f !important;
+border-color: #d43f3a !important;    
+}
+
+canvas{
+width: 300px;
+}
