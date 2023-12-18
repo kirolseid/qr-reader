@@ -1,25 +1,71 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Instascan</title>
-    <script type="text/javascript" src="js/instascan.min.js"></script>
-  </head>
-  <body>
-    <video id="preview"></video>
-    <script type="text/javascript">
-      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-      scanner.addListener('scan', function (content) {
-        console.log(content);
-      });
-      Instascan.Camera.getCameras().then(function (cameras) {
-        if (cameras.length > 0) {
-          scanner.start(cameras[0]);
-        } else {
-          console.error('No cameras found.');
-        }
-      }).catch(function (e) {
-        console.error(e);
-      });
-    </script>
-  </body>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="icon" type="image/x-icon" href="/images/Logo.png" />
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="text/javascript" src="https://webqr.com/llqrcode.js"></script>
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <script type="text/javascript" src="https://webqr.com/webqr.js"></script>
+    
+    </head>
+    
+    <body>
+    <div id="main">
+    <div id="header">
+    <div style="position:relative;top:+20px;left:0px;">
+    <img src="img/menu4ulogo.png" alt="Menu4u" width="244" height="244">
+     <p id="mp1">
+     A Simple QR Reader For You
+    </p>
+    
+      </div>
+    <div id="mainbody">
+    <table class="tsel" border="0" width="100%">
+    <tr>
+    <td valign="top" align="center" width="50%">
+    <table class="tsel" border="0">
+    <tr>
+    <td><img class="selector" id="webcamimg" src="https://webqr.com/vid.png" onclick="setwebcam()" align="left" /></td>
+    <td><img class="selector" id="qrimg" src="https://webqr.com/cam.png" onclick="setimg()" align="right"/></td></tr>
+    <tr><td colspan="2" align="center">
+    <div id="outdiv">
+    </div></td></tr>
+    </table>
+    </td>
+    </tr>
+    
+    <tr><td colspan="3" align="center">
+    <div id="result"></div>
+    </td></tr>
+    </table>
+    
+    <!-- webqr_2016 -->
+    
+    </div>&nbsp;
+    <div id="footer">
+    <h3 align="center"><p>Nota: En algunos dispositivos se abre la camara frontal, presione el icono de video y luego el de camara y regrese al de video,&nbsp;</p><p>asi se abrira la camara posterior y podra escanear su codigo QR.</p></h3>
+    <h3 align="center"><p>Note: In some devices the front camera opens, press the video icon and then the camera icon and return to the video icon,&nbsp;</p><p>so the rear camera will open and you can scan your QR code.</p></h3>
+    <h5 align="center">Copyright &copy; 2020 <a target="_blank" href="http://menu4u.ml">Menu4u</a></h5>
+    </div>
+    </div>
+    <canvas id="qr-canvas" width="800" height="600"></canvas>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/jquery-3.5.1.js"></script>
+
+
+    <script src="js/main.js"></script>
+</body>
 </html>

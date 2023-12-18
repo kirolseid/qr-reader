@@ -1,22 +1,10 @@
-// let scanner = new Instascan.Scanner({
-//   video: document.getElementById("preview"),
-// });
+load();
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24451557-1']);
+  _gaq.push(['_trackPageview']);
 
-// scanner.addListener("scan", function(content) {
-//   console.log(content);
-//   document.getElementById("hoo").html('dsax');
-// });
-
-// console.log(document.getElementById("preview"));
-
-// Instascan.Camera.getCameras()
-//   .then(function(cameras) {
-//     if (cameras.length > 0) {
-//       scanner.start(cameras[1]);
-//     } else {
-//       console.error("No cameras found.");
-//     }
-//   })
-//   .catch(function(e) {
-//     console.error(e);
-//   });
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
