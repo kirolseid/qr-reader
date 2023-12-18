@@ -16,32 +16,19 @@
 
 </head>
 <body >
-<div data-role="page" id="divMain">
-    <div data-role="header">
-      <h1> QRCode Reader </h1>
-    </div>  
-    <div class="ui-body">        
-      <div>
-          <label for="text-basic">Código:</label>
-          <input type="text" name="inputCod" id="inputCod">
-      </div>    
-      <div class="botaoPadrao botaoVermelho" id="divBtCancLeitura" style="display: none;">
-        <div class="ui-btn ui-input-btn ui-corner-all ui-shadow ui-icon-check ui-btn-icon-left" id="botaoCancLeitura">Cancelar leitura</div>
+    <div id="container">
+        <h1>QR Code Scanner</h1>
+      
+        <a id="btn-scan-qr">
+          <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2017/07/1499401426qr_icon.svg" />
+        </a>
+      
+        <canvas hidden="" id="qr-canvas"></canvas>
+      
+        <div id="qr-result" hidden="">
+          <b>Data:</b> <span id="outputData"></span>
+        </div>
       </div>
-      <div id="capturaVideo">
-        <div id="loadingMessage">🎥 Não foi possível acessar camera</div>
-          <canvas id="canvas" hidden></canvas>
-          <div id="output" hidden>
-            <div id="outputMessage">No QR code detected.</div>
-            <div hidden><b>Data:</b> <span id="outputData"></span></div>
-          </div>
-      </div>    
-      <div class="botaoPadrao botaoVerde" id="divBtAdd"> 
-      <div class="ui-btn ui-input-btn ui-corner-all ui-shadow ui-icon-check ui-btn-icon-left" id="botaoCaptura">Ler código</div> 
-    </div>      
-    </div>    
-</div>
-
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/all.min.js"></script>

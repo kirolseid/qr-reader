@@ -1,23 +1,47 @@
-.botaoPadrao > div {
- color: #fff !important;
- background-color: #337ab7 !important;
- border-color: #2e6da4 !important;
- text-shadow: none !important;
- font-weight: normal;
- overflow: visible;
+html {
+ height: 100%;
 }
 
-
-.botaoVerde > div {
-background-color: #5cb85c !important;
-border-color: #4cae4c !important;        
+body {
+ font-family: sans-serif;
+ padding: 0 10px;
+ height: 100%;
+ background: black;
+ margin: 0;
 }
 
-.botaoVermelho > div {
-background-color: #d9534f !important;
-border-color: #d43f3a !important;    
+h1 {
+ color: white;
+ margin: 0;
+ padding: 15px;
 }
 
-canvas{
-width: 300px;
+#container {
+ text-align: center;
+ margin: 0;
+}
+
+#qr-canvas {
+ margin: auto;
+ width: calc(100% - 20px);
+ max-width: 400px;
+}
+
+#btn-scan-qr {
+ cursor: pointer;
+}
+
+#btn-scan-qr img {
+ height: 10em;
+ padding: 15px;
+ margin: 15px;
+ background: white;
+}
+
+#qr-result {
+ font-size: 1.2em;
+ margin: 20px auto;
+ padding: 20px;
+ max-width: 700px;
+ background-color: white;
 }
