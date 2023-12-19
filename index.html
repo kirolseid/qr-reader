@@ -1,34 +1,16 @@
+
 <!DOCTYPE html>
-<html lang="ar">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="icon" type="image/x-icon" href="/images/Logo.png" />
+  <title>QR Code Generator</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+</head>
+<body>
+  <h1>QR Code Generator</h1>
+  <input type="text" id="qrDataInput" placeholder="Enter QR code data">
+  <button onclick="generateQR()">Generate QR Code</button>
+  <div id="qrCodeContainer"></div>
+  <script src="js/main.js"></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-
-      <h1>QR Code Scanner</h1>
-      <button id="startButton">Start Camera</button>
-      <video id="qr-video" width="300" height="200" style="display: none;"></video>
-      <canvas id="qr-canvas" style="display: none;"></canvas>
-      <script src="https://cdn.jsdelivr.net/npm/jsqr@1.0.0/build/jsQR.js"></script>
-
-
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/all.min.js"></script>
-    <script src="js/jquery-3.5.1.js"></script>
-
-
-    <script src="js/main.js"></script>
 </body>
 </html>
