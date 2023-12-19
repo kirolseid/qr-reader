@@ -7,7 +7,7 @@ const scanner = new Html5QrcodeScanner(
   {
     fps: 10, // Frame rate
     qrbox: 250, // QR code box size
-    quietZone: 2, // Quiet zone around the QR code
+    quietZone: 1, // Quiet zone around the QR code
   }
 );
 
