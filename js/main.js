@@ -1,23 +1,46 @@
-function generateQR() {
-  const qrDataInput = document.getElementById('qrDataInput');
-  const qrCodeContainer = document.getElementById('qrCodeContainer');
-  const qrData = qrDataInput.value;
+const video = document.getElementById('qr-video');
+const canvasElement = document.getElementById('qr-canvas');
+const canvas = canvasElement.getContext('2d');
+const qrDataContainer = document.getElementById('qrDataContainer');
 
-  if (!qrData) {
-    alert('Please enter QR code data');
-    return;
+navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+  .then((stream) => {
+    video.srcObject = stream;
+    video.setAttribute('playsinline', true);
+    video.style.display = 'block';
+    video.play();
+    requestAnimationFrame(tick);
+  })
+  .catch((err) => {
+    console.error('Error accessing the camera:', err);
+  });
+
+function tick() {
+  if (video.readyState === video.HAVE_ENOUGH_DATA) {
+    canvasElement.height = video.videoHeight;
+    canvasElement.width = video.videoWidth;
+    canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+    const imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+    const code = jsQR(imageData.data, imageData.width, imageData.height);
+    if (code) {
+      console.log('QR Code detected:', code.data);
+      setQRData(code.data); // Set QR code data into HTML
+    }
   }
+  requestAnimationFrame(tick);
+}
 
-  // Clear any existing QR code
-  qrCodeContainer.innerHTML = '';
+function setQRData(qrData) {
+  qrDataContainer.innerHTML = `<p>QR Code Data: ${qrData}</p>`;
+  generateQRCode(qrData); // Generate QR code for the scanned data
+}
 
-  // Create a QR code instance
-  const qrCode = new QRCode(qrCodeContainer, {
+function generateQRCode(qrData) {
+  const qrCodeContainer = document.createElement('div');
+  new QRCode(qrCodeContainer, {
     text: qrData,
     width: 200,
     height: 200,
   });
-
-  // Display the generated QR code
-  qrCode.makeCode(qrData);
+  qrDataContainer.appendChild(qrCodeContainer);
 }

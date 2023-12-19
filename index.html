@@ -2,14 +2,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>QR Code Generator</title>
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+  <title>QR Code Reader</title>
 </head>
 <body>
-  <h1>QR Code Generator</h1>
-  <input type="text" id="qrDataInput" placeholder="Enter QR code data">
-  <button onclick="generateQR()">Generate QR Code</button>
-  <div id="qrCodeContainer"></div>
+  <h1>QR Code Reader</h1>
+  <video id="qr-video" width="300" height="200" style="display: none;"></video>
+  <canvas id="qr-canvas" style="display: none;"></canvas>
+  <div id="qrDataContainer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.0.0/build/jsQR.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
   <script src="js/main.js"></script>
 
 </body>
