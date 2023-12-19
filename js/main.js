@@ -9,25 +9,27 @@ navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
     video.setAttribute('playsinline', true);
     video.style.display = 'block';
     video.play();
-    requestAnimationFrame(tick);
+    scanQRCode();
   })
   .catch((err) => {
     console.error('Error accessing the camera:', err);
   });
 
-function tick() {
-  if (video.readyState === video.HAVE_ENOUGH_DATA) {
-    canvasElement.height = video.videoHeight;
-    canvasElement.width = video.videoWidth;
-    canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
-    const imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-    const code = jsQR(imageData.data, imageData.width, imageData.height);
-    if (code) {
-      console.log('QR Code detected:', code.data);
-      setQRData(code.data); // Set QR code data into HTML
+function scanQRCode() {
+  const loop = setInterval(() => {
+    if (video.readyState === video.HAVE_ENOUGH_DATA) {
+      canvasElement.height = video.videoHeight;
+      canvasElement.width = video.videoWidth;
+      canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+      const imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+      const code = jsQR(imageData.data, imageData.width, imageData.height);
+      if (code) {
+        console.log('QR Code detected:', code.data);
+        clearInterval(loop);
+        setQRData(code.data); // Set QR code data into HTML
+      }
     }
-  }
-  requestAnimationFrame(tick);
+  }, 100);
 }
 
 function setQRData(qrData) {
