@@ -1,37 +1,31 @@
-const video = document.getElementById('qr-video');
-const canvasElement = document.getElementById('qr-canvas');
-const canvas = canvasElement.getContext('2d');
-const qrDataContainer = document.getElementById('qrDataContainer');
+// Include the html5-qrcode library
+import Html5QrcodeScanner from "html5-qrcode";
 
-navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
-  .then((stream) => {
-    video.srcObject = stream;
-    video.setAttribute('playsinline', true);
-    video.style.display = 'block';
-    video.play();
-    video.onloadedmetadata = () => {
-      scanQRCode();
-    };
-  })
-  .catch((err) => {
-    console.error('Error accessing the camera:', err);
-  });
+// Initialize the scanner
+const scanner = new Html5QrcodeScanner(
+  "camera",
+  {
+    fps: 10, // Frame rate
+    qrbox: 250, // QR code box size
+    quietZone: 2, // Quiet zone around the QR code
+  }
+);
 
-function scanQRCode() {
-  const checkInterval = setInterval(() => {
-    canvasElement.width = video.videoWidth;
-    canvasElement.height = video.videoHeight;
-    canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
-    const imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-    const code = jsQR(imageData.data, imageData.width, imageData.height);
-    if (code) {
-      console.log('QR Code detected:', code.data);
-      clearInterval(checkInterval);
-      setQRData(code.data);
-    }
-  }, 500);
-}
+// Display scan message before scan
+const scanMessage = document.getElementById("scan-message");
 
-function setQRData(qrData) {
-  qrDataContainer.innerHTML = `<p>QR Code Data: ${qrData}</p>`;
+// Listen for scan success event
+scanner.render(async (decodedText, decodedResult) => {
+  scanMessage.innerHTML = `QR code scanned: ${decodedText}`;
+
+  // Extract URL from the scan result
+  const url = decodedText.match(/(https?:\/\/[^ ]+)/)[1];
+
+  // Redirect to the scanned URL
+  window.location.replace(url);
+});
+
+// Check if device supports camera
+if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+  scanMessage.innerHTML = "Camera access not supported!";
 }
