@@ -12,7 +12,14 @@ navigator.mediaDevices.getUserMedia({
   video.play();
 
   // Use a QR code scanning library like html5-qrcode with the video element
-  const scanner = new Html5QrcodeScanner(video);
+ const scanner = new Html5QrcodeScanner(
+  "camera",
+  {
+    fps: 10, // Frame rate
+    qrbox: 250, // QR code box size
+    quietZone: 1, // Quiet zone around the QR code
+  }
+);
   scanner.render(async (decodedText, decodedResult) => {
     scanMessage.innerHTML = `QR code scanned: ${decodedText}`;
   
