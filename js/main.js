@@ -1,5 +1,5 @@
 // Include the html5-qrcode library
-import Html5QrcodeScanner from "html5-qrcode";
+// const Html5QrcodeScanner = require("html5-qrcode");
 
 // Initialize the scanner
 const scanner = new Html5QrcodeScanner(
