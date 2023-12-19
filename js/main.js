@@ -20,8 +20,28 @@ function tick() {
     const code = jsQR(imageData.data, imageData.width, imageData.height);
     if (code) {
       console.log('QR Code detected:', code.data);
-      // You can do something with the detected QR code data here
+      redirectToURL(code.data); // Redirect to the URL extracted from QR code
     }
   }
   requestAnimationFrame(tick);
+}
+
+function redirectToURL(url) {
+  // Check if the scanned data resembles a URL
+  if (isValidURL(url)) {
+    window.location.href = url; // Redirect to the URL
+  } else {
+    console.log('Not a valid URL:', url);
+  }
+}
+
+// Function to validate if the extracted data resembles a URL
+function isValidURL(str) {
+  const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+    '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+  return !!pattern.test(str);
 }
