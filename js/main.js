@@ -1,5 +1,32 @@
+function showoverview(){
+  $("#overview").css("display","block");
+  $(".cover").css("display","block");
+}
+
+
+
+
+function hide(){
+  $("#overview").css("display","none");
+  $("#qrscanner").css("display","none");
+
+  $(".cover").css("display","none");
+}
+
+
+function showqrscanner(){
+  $("#overview").css("display","none");
+  $("#qrscanner").css("display","block");
+}
+
+
+
+
+
+
 // Include the html5-qrcode library
 // const Html5QrcodeScanner = require("html5-qrcode");
+
 
 
 
