@@ -7,7 +7,7 @@ body{
 @media all and (max-width: 480px) {
 .screen{
  position: relative;
- width: 420px;
+ max-width: 420px;
  background-color: #FFF;
  margin: auto;
  min-height: 100vh;
