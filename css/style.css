@@ -519,12 +519,12 @@ margin: auto;
 } */
 
 #camera {
- /* width: 300px; */
- /* height: 100px; */
- /* border: 1px solid #ddd; */
+ width: 300px;
+ height: 100px;
+ border: 1px solid #ddd;
  border: none !important;
  border-radius: 5px;
- /* overflow: hidden; */
+ overflow: hidden;
 }
 
 #scan-message {
