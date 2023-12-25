@@ -1,23 +1,23 @@
-function showoverview(){
-  $("#overview").css("display","block");
-  $(".cover").css("display","block");
-}
+// function showoverview(){
+//   $("#overview").css("display","block");
+//   $(".cover").css("display","block");
+// }
 
 
 
 
-function hide(){
-  $("#overview").css("display","none");
-  $("#qrscanner").css("display","none");
+// function hide(){
+//   $("#overview").css("display","none");
+//   $("#qrscanner").css("display","none");
 
-  $(".cover").css("display","none");
-}
+//   $(".cover").css("display","none");
+// }
 
 
-function showqrscanner(){
-  $("#overview").css("display","none");
-  $("#qrscanner").css("display","block");
-}
+// function showqrscanner(){
+//   $("#overview").css("display","none");
+//   $("#qrscanner").css("display","block");
+// }
 
 
 

@@ -1,119 +1,19 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QR Code Scanner</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-
- <div class="screen">
-
-
-  <div class="cover"></div>
-  <div class="header">
-   <h1>Welcom!</h1>
-   <p>We happy to have you here</p>
-  </div>
-  <div class="prize">
-   <p>Your Goal To <br> Complete all activity  <br>to get the prize.</p>
-   <div class="img">
-    <img class="img-fluid" src="/images/Group 14.png" alt="">
-   </div>
-  </div>
-
-  <h2>Explore <span>( Click on the card to scan QR )</span></h2>
-
-  <div class="booths">
-   <div class="row">
-    <div class="col-6" >
-     <div class="booth" onclick="showoverview()">
-      <img class="img-fluid" src="/images/Rectangle 13.png" alt="">
-      <div class="boothTitle">
-       <h4>Aramco GYM</h4>
-       <h5>How to play safe</h5>
-      </div>
-     </div>
-    </div>
-    <div class="col-6">
-     <div class="booth">
-      <img class="img-fluid" src="/images/Rectangle 13.png" alt="">
-      <div class="boothTitle">
-       <h4>Aramco GYM</h4>
-       <h5>How to play safe</h5>
-      </div>
-     </div>
-    </div>
-    <div class="col-6">
-     <div class="booth">
-      <img class="img-fluid" src="/images/Rectangle 13.png" alt="">
-      <div class="boothTitle">
-       <h4>Aramco GYM</h4>
-       <h5>How to play safe</h5>
-      </div>
-     </div>
-    </div>
-    <div class="col-6">
-     <div class="booth">
-      <img class="img-fluid" src="/images/Rectangle 13.png" alt="">
-      <div class="boothTitle">
-       <h4>Aramco GYM</h4>
-       <h5>How to play safe</h5>
-      </div>
-     </div>
-    </div>
-   </div>
-  </div>
-
-
-  <div class="overview" id="overview">
-   <div class="exit">
-    <a onclick="hide()"><img src="/images/Vector (5).png" alt=""></a>
-   </div>
-   <div class="text">
-    <h6>Aramco GYM</h6>
-    <h6>How to play safe</h6>
-   </div>
-   <div class="overviewBox">
-    <p>In This box will be an overview about the booth or the sport</p>
-   </div>
-   <div class="btns">
-    <button class="next" onclick="showqrscanner()">Next</button>
-   </div>
-  </div>
-
-
-  <div class="overview" id="qrscanner">
-   <div class="exit">
-    <a onclick="hide()" ><img src="/images/Vector (5).png" alt=""></a>
-   </div>
-   <div class="text">
-    
-    <p>Scan QR to complete on the booth the mission</p>
-   </div>
-   <div class="overviewBox">
-   <img src="/images/QR CODE.png" alt="">
-   </div>
-   <div class="btns">
   <div id="camera"></div>
-    <!-- <button>SCAN</button> -->
-   </div>
-  </div>
+  <p id="scan-message">Scan a QR code to begin.</p>
+  <script src="js/html5-qrcode.min.js"></script>
 
- </div>
-
-
-
- 
- <script src="/js/popper.min.js"></script>
- <script src="/js/jquery-3.5.1.js"></script>
- <script src="/js/bootstrap.min.js"></script>
- <script src="js/html5-qrcode.min.js"></script>
- <script src="/js/main.js"></script>
+  <script src="js/main.js"></script>
 
 </body>
 </html>

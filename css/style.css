@@ -4,6 +4,279 @@ body{
  margin: 0;
  padding: 0;
 }
+
+.screen{
+ position: relative;
+ max-width: 420px;
+ background-color: #FFF;
+ margin: auto;
+ min-height: 100vh;
+}
+
+.cover {
+ display: none;
+
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ background-color: #00000086;
+ z-index: 999;
+}
+.header {
+ margin:0px 20px;
+}
+
+.header h1{
+ padding-top: 20px;
+ color: #82B74D;
+text-align: justify;
+font-family: Montserrat;
+font-size: 40px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.header p{
+ color: #1D1D1D;
+text-align: justify;
+font-family: Montserrat;
+font-size: 15px;
+font-style: normal;
+font-weight: 200;
+line-height: normal;
+}
+
+
+.prize{
+ margin: 0 10px;
+ border-radius: 10px;
+background: #82B74D;
+display: flex; 
+justify-content: space-between;
+padding: 20px 15px;
+}
+
+.prize p{
+ color: #FFF;
+ font-family: Montserrat;
+ font-size: 18px;
+ font-style: normal;
+ font-weight: 400;
+ line-height: normal;
+ width: 70%;
+ margin: auto;
+}
+
+
+.prize .img{
+ width: 114px !important;
+height: 114px !important;
+background-color: #ACEE69;
+border-radius: 50%;
+display: flex; 
+justify-content: center;
+align-items: center;
+
+}
+
+
+
+h2{
+ 
+ color: #000;
+font-family: Montserrat;
+font-size: 25px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin: 30px 20px;
+}
+
+h2 span{
+ color: #878787;;
+ font-family: Montserrat;
+ font-size: 12px;
+ font-style: normal;
+ font-weight: 400;
+ line-height: normal;
+ margin-bottom: 10px;
+}
+
+
+
+.booths{
+ margin: 0 20px;
+}
+
+.booths .booth{
+ width: 100%;
+ margin:20px  auto;
+cursor: pointer;
+ position: relative;
+}
+
+.booths .booth .boothTitle{
+ position: absolute;
+ padding: 20px 0;
+ width: 100%;
+ bottom: 0px;
+ border-radius: 0px 0px 2px 2px;
+ background: rgba(0, 0, 0, 0.75);
+}
+
+.booths .booth .boothTitle h4{
+ color: #FFF;
+ text-align: center;
+ font-family: Montserrat;
+ font-size: 12px;
+ font-style: normal;
+ font-weight: 700;
+ line-height: normal;
+}
+
+.booths .booth .boothTitle h5{
+ color: #FFF;
+ text-align: center;
+ font-family: Montserrat;
+ font-size: 15px;
+ font-style: normal;
+ font-weight: 700;
+ line-height: normal;
+}
+
+#overview{
+ display: none;
+}
+
+#qrscanner{
+ display: none;
+}
+.overview{
+ position: fixed;
+ z-index: 9999;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%,-50%);
+ background-color: #FFF;
+ padding: 30px;
+ width: 340px;
+
+}
+
+
+.overview .exit{
+ display: flex;
+ justify-content: end;
+}
+
+.overview .exit a{
+cursor: pointer;
+}
+
+.overview .text h6{
+ color: #000;
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-align: center;
+}
+
+.overview .text p{
+text-align: center;
+margin: auto;
+ color: #000;
+ text-align: center;
+ font-family: Montserrat;
+ font-size: 18px;
+ font-style: normal;
+ font-weight: 500;
+ line-height: normal;
+ width: 80%;
+}
+.overview .overviewBox{
+ width: 285px;
+ min-height: 150px;
+ border: 1px solid #000;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin: 20px auto;
+}
+
+.overview .overviewBox p{
+ text-align: center;
+ width:60%;
+}
+
+.overview .btns{
+ text-align: center;
+ display: flex;
+ justify-content: center;
+}
+
+.overview .btns button{
+ padding: 10px 50px;
+ border-radius: 8px;
+ background: #82B74D;
+ border: none;
+ color: #FFF;
+ text-align: center;
+ font-family: Montserrat;
+ font-size: 17px;
+ font-style: normal;
+ font-weight: 700;
+ line-height: normal;
+}
+.overview .btns .next{
+ padding: 10px 70px;
+}
+
+/* body {
+ font-family: sans-serif;
+ margin: 0;
+ padding: 0;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ height: 100vh;
+} */
+
+#camera {
+ width: 300px;
+ height: 100px;
+ border: 1px solid #ddd;
+ border: none !important;
+ border-radius: 5px;
+ overflow: hidden;
+}
+
+#scan-message {
+ margin-top: 10px;
+ font-size: 16px;
+}
+
+#camera__status_span{
+ display: none !important;
+}
+
+/* #camera span {
+ display: none !important;
+} */
+
+#camera__dashboard_section_swaplink{
+ display: none !important;
+
+}
+
+#camera__scan_region{
+ min-height: auto !important;
+}
+
+
 @media all and (max-width: 480px) {
 .screen{
  position: relative;
