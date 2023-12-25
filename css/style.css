@@ -230,6 +230,10 @@ margin: auto;
  font-weight: 700;
  line-height: normal;
 }
+.overview .btns .next{
+ padding: 10px 70px;
+
+}
 
 /* body {
  font-family: sans-serif;
