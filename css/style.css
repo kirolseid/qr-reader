@@ -218,17 +218,17 @@ margin: auto;
 }
 
 .overview .btns button{
- padding: 8px 70px;
+ padding: 10px 0px;
  border-radius: 8px;
  background: #82B74D;
  border: none;
  color: #FFF;
  text-align: center;
-font-family: Montserrat;
-font-size: 20px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+ font-family: Montserrat;
+ font-size: 17px;
+ font-style: normal;
+ font-weight: 700;
+ line-height: normal;
 }
 
 /* body {
