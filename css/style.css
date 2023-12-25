@@ -49,18 +49,18 @@ line-height: normal;
 
 
 .prize{
- margin: 0 20px;
+ margin: 0 10px;
  border-radius: 10px;
 background: #82B74D;
 display: flex; 
 justify-content: space-between;
-padding: 20px 25px;
+padding: 20px 15px;
 }
 
 .prize p{
  color: #FFF;
  font-family: Montserrat;
- font-size: 22px;
+ font-size: 18px;
  font-style: normal;
  font-weight: 400;
  line-height: normal;
@@ -232,7 +232,6 @@ margin: auto;
 }
 .overview .btns .next{
  padding: 10px 70px;
-
 }
 
 /* body {
