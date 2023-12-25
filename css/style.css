@@ -1,11 +1,13 @@
 
 body{
  background-color: #ddd;
+ margin: 0;
+ padding: 0;
 }
 
 .screen{
  position: relative;
- width: 480px;
+ width: 420px;
  background-color: #FFF;
  margin: auto;
  min-height: 100vh;
@@ -21,11 +23,11 @@ body{
  z-index: 999;
 }
 .header {
- margin: 20px;
+ margin:0px 20px;
 }
 
 .header h1{
- 
+ padding-top: 20px;
  color: #82B74D;
 text-align: justify;
 font-family: Montserrat;
@@ -108,7 +110,7 @@ h2 span{
 }
 
 .booths .booth{
- width: 89%;
+ width: 100%;
  margin:20px  auto;
 cursor: pointer;
  position: relative;
