@@ -176,8 +176,6 @@ cursor: pointer;
 
 .overview .text h6{
  color: #000;
-leading-trim: both;
-text-edge: cap;
 font-family: Montserrat;
 font-size: 18px;
 font-style: normal;
@@ -191,8 +189,6 @@ text-align: center;
 margin: auto;
  color: #000;
  text-align: center;
- leading-trim: both;
- text-edge: cap;
  font-family: Montserrat;
  font-size: 18px;
  font-style: normal;
