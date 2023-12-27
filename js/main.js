@@ -27,9 +27,6 @@
 // Include the html5-qrcode library
 // const Html5QrcodeScanner = require("html5-qrcode");
 
-
-
-
 // Initialize the scanner
 const scanner = new Html5QrcodeScanner(
   "camera",
@@ -45,13 +42,15 @@ const scanMessage = document.getElementById("scan-message");
 
 // Listen for scan success event
 scanner.render(async (decodedText, decodedResult) => {
-  // scanMessage.innerHTML = `QR code scanned: ${decodedText}`  ;
+  scanMessage.innerHTML = `QR code scanned: ${decodedText}`;
 
   // Extract URL from the scan result
   const url = decodedText.match(/(https?:\/\/[^ ]+)/)[1];
 
   // Redirect to the scanned URL
   window.location.replace(url);
+  scanner.stop();
+
 });
 
 // Check if device supports camera
