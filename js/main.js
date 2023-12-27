@@ -46,9 +46,8 @@ domReady(function () {
     const url = decodeText.match(/(https?:\/\/[^ ]+)/)[1];
 
     // Redirect to the scanned URL
-    // window.location.replace(url);
-    setTimeout(window.location.replace(url), 1000);
-
+    window.location.replace(url);
+    alert("jghj")
   } 
 
   let htmlscanner = new Html5QrcodeScanner( 
