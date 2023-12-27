@@ -21,9 +21,25 @@
 
 
 
+const showAlert = (message) => {
+  const alertBox = document.createElement('div');
+  alertBox.textContent = message;
+  alertBox.style.padding = '10px';
+  alertBox.style.backgroundColor = '#f2f2f2';
+  alertBox.style.border = '1px solid #ccc';
+  alertBox.style.position = 'fixed';
+  alertBox.style.top = '10px';
+  alertBox.style.left = '50%';
+  alertBox.style.transform = 'translateX(-50%)';
+  document.body.appendChild(alertBox);
 
+  // Hide the alert after 1 second
+  setTimeout(() => {
+    alertBox.style.display = 'none';
+  }, 5000);
+};
 
-
+// Call the showAlert function with your message
 // Include the html5-qrcode library
 // const Html5QrcodeScanner = require("html5-qrcode");
 
@@ -47,7 +63,8 @@ domReady(function () {
 
     // Redirect to the scanned URL
     window.location.replace(url);
-    alert("jghj")
+    showAlert('This alert will disappear after 1 second.');
+
   } 
 
   let htmlscanner = new Html5QrcodeScanner( 
