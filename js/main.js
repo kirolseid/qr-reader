@@ -46,11 +46,11 @@ scanner.render(async (decodedText, decodedResult) => {
 
   // Extract URL from the scan result
   const url = decodedText.match(/(https?:\/\/[^ ]+)/)[1];
-  scanner.stop();
-
-  // Redirect to the scanned URL
-  window.location.replace(url);
   // scanner.stop();
+  window.location.href = `${url}`;
+  // Redirect to the scanned URL
+  // window.location.replace(url);
+  scanner.stop();
 
 });
 
