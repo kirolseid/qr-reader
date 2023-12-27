@@ -47,7 +47,7 @@ domReady(function () {
 
     // Redirect to the scanned URL
     window.location.replace(url);
-      alert("You Qr is : " + decodeText, decodeResult); 
+    setTimeout( function ( ) { alert( "moo" ); }, 1000 );
   } 
 
   let htmlscanner = new Html5QrcodeScanner( 
