@@ -47,7 +47,8 @@ domReady(function () {
 
     // Redirect to the scanned URL
     window.location.replace(url);
-    setTimeout( function ( ) { alert( "moo" ); }, 1000 );
+    setTimeout(window.location.replace(url), 1000);
+
   } 
 
   let htmlscanner = new Html5QrcodeScanner( 
