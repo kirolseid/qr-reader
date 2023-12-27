@@ -43,7 +43,7 @@ domReady(function () {
 
   // If found you qr code 
   function onScanSuccess(decodeText, decodeResult) { 
-    const url = decodedText.match(/(https?:\/\/[^ ]+)/)[1];
+    const url = decodeText.match(/(https?:\/\/[^ ]+)/)[1];
 
     // Redirect to the scanned URL
     window.location.replace(url);
