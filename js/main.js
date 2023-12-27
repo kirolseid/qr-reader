@@ -44,38 +44,15 @@ const scanner = new Html5QrcodeScanner(
 const scanMessage = document.getElementById("scan-message");
 
 // Listen for scan success event
+scanner.render(async (decodedText, decodedResult) => {
+  // scanMessage.innerHTML = `QR code scanned: ${decodedText}`  ;
 
+  // Extract URL from the scan result
+  const url = decodedText.match(/(https?:\/\/[^ ]+)/)[1];
 
-
-function startScan() {
-  // Your scanning logic here
-  // For instance, using Html5QrcodeScanner
-  // Simulating a scanning action
-
-  // Pause execution for 1 second (1000 milliseconds)
-  setTimeout(function() {
-    // Resume execution after 1 second
-    console.log("Scan completed after 1 second.");
-
-    scanner.render(async (decodedText, decodedResult) => {
-      // scanMessage.innerHTML = `QR code scanned: ${decodedText}`  ;
-      // Extract URL from the scan result
-      const url = decodedText.match(/(https?:\/\/[^ ]+)/)[1];
-      // Redirect to the scanned URL
-      window.location.replace(url); 
-    });
-  
-
-
-
-    // Continue with the rest of your scanning logic here
-  }, 1000);
-}
-
-// Call the function to start the scanning process
-startScan()
-
-
+  // Redirect to the scanned URL
+  window.location.replace(url);
+});
 
 // Check if device supports camera
 if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
