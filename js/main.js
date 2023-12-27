@@ -21,55 +21,58 @@
 
 
 
-const showAlert = (message) => {
-  const alertBox = document.createElement('div');
-  alertBox.textContent = message;
-  alertBox.style.padding = '10px';
-  alertBox.style.backgroundColor = '#f2f2f2';
-  alertBox.style.border = '1px solid #ccc';
-  alertBox.style.position = 'fixed';
-  alertBox.style.top = '10px';
-  alertBox.style.left = '50%';
-  alertBox.style.transform = 'translateX(-50%)';
-  document.body.appendChild(alertBox);
 
-  // Hide the alert after 1 second
-  setTimeout(() => {
-    alertBox.style.display = 'none';
-  }, 5000);
-};
 
-// Call the showAlert function with your message
+
 // Include the html5-qrcode library
 // const Html5QrcodeScanner = require("html5-qrcode");
 
 
-function domReady(fn) { 
-  if ( 
-      document.readyState === "complete" || 
-      document.readyState === "interactive"
-  ) { 
-      setTimeout(fn, 1000); 
-  } else { 
-      document.addEventListener("DOMContentLoaded", fn); 
-  } 
-} 
 
-domReady(function () { 
 
-  // If found you qr code 
-  function onScanSuccess(decodeText, decodeResult) { 
-    const url = decodeText.match(/(https?:\/\/[^ ]+)/)[1];
+// Initialize the scanner
+const scanner = new Html5QrcodeScanner(
+  "camera",
+  {
+    fps: 10, // Frame rate
+    qrbox: 250, // QR code box size
+    quietZone: 1, // Quiet zone around the QR code
+  }
+);
 
+// Display scan message before scan
+const scanMessage = document.getElementById("scan-message");
+
+// Listen for scan success event
+
+
+
+function startScan() {
+  // Your scanning logic here
+  // For instance, using Html5QrcodeScanner
+  // Simulating a scanning action
+  scanner.render(async (decodedText, decodedResult) => {
+    // scanMessage.innerHTML = `QR code scanned: ${decodedText}`  ;
+    // Extract URL from the scan result
+    const url = decodedText.match(/(https?:\/\/[^ ]+)/)[1];
     // Redirect to the scanned URL
-    window.location.replace(url);
-    showAlert('This alert will disappear after 1 second.');
+    window.location.replace(url); 
+  });
 
-  } 
+  // Pause execution for 1 second (1000 milliseconds)
+  setTimeout(function() {
+    // Resume execution after 1 second
+    console.log("Scan completed after 1 second.");
+    // Continue with the rest of your scanning logic here
+  }, 1000);
+}
 
-  let htmlscanner = new Html5QrcodeScanner( 
-      "my-qr-reader", 
-      { fps: 10, qrbos: 250 } 
-  ); 
-  htmlscanner.render(onScanSuccess); 
-});
+// Call the function to start the scanning process
+startScan()
+
+
+
+// Check if device supports camera
+if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+  scanMessage.innerHTML = "Camera access not supported!";
+}
