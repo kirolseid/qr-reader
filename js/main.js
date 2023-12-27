@@ -45,7 +45,7 @@ const scanMessage = document.getElementById("scan-message");
 
 // Listen for scan success event
 scanner.render(async (decodedText, decodedResult) => {
-  scanMessage.innerHTML = `QR code scanned: ${decodedText}`;
+  // scanMessage.innerHTML = `QR code scanned: ${decodedText}`  ;
 
   // Extract URL from the scan result
   const url = decodedText.match(/(https?:\/\/[^ ]+)/)[1];
