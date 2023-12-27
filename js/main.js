@@ -46,7 +46,7 @@ const scanMessage = document.getElementById("scan-message");
 // Listen for scan success event
 scanner.render(async (decodedText, decodedResult) => {
   // Stop the scanner immediately after a successful scan
-  scanner.stop();
+  // scanner.stop();
 
   // Update scan message
   scanMessage.innerHTML = `QR code scanned: ${decodedText}`;
@@ -56,6 +56,8 @@ scanner.render(async (decodedText, decodedResult) => {
 
   // Redirect to the scanned URL
   window.location.replace(url);
+  scanner.stop();
+
 });
 
 // Check if device supports camera
