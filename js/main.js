@@ -28,39 +28,27 @@
 // const Html5QrcodeScanner = require("html5-qrcode");
 
 
+function domReady(fn) { 
+  if ( 
+      document.readyState === "complete" || 
+      document.readyState === "interactive"
+  ) { 
+      setTimeout(fn, 1000); 
+  } else { 
+      document.addEventListener("DOMContentLoaded", fn); 
+  } 
+} 
 
+domReady(function () { 
 
-// Initialize the scanner
-const scanner = new Html5QrcodeScanner(
-  "camera",
-  {
-    fps: 10, // Frame rate
-    qrbox: 250, // QR code box size
-    quietZone: 1, // Quiet zone around the QR code
-  }
-);
+  // If found you qr code 
+  function onScanSuccess(decodeText, decodeResult) { 
+      alert("You Qr is : " + decodeText, decodeResult); 
+  } 
 
-// Display scan message before scan
-const scanMessage = document.getElementById("scan-message");
-
-// Listen for scan success event
-scanner.render(async (decodedText, decodedResult) => {
-  // Stop the scanner immediately after a successful scan
-  // scanner.stop();
-
-  // Update scan message
-  scanMessage.innerHTML = `QR code scanned: ${decodedText}`;
-
-  // Extract URL from the scan result
-  const url = decodedText.match(/(https?:\/\/[^ ]+)/)[1];
-
-  // Redirect to the scanned URL
-  window.location.replace(url);
-  scanner.stop();
-
+  let htmlscanner = new Html5QrcodeScanner( 
+      "my-qr-reader", 
+      { fps: 10, qrbos: 250 } 
+  ); 
+  htmlscanner.render(onScanSuccess); 
 });
-
-// Check if device supports camera
-if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-  scanMessage.innerHTML = "Camera access not supported!";
-}
