@@ -22,5 +22,9 @@ domReady(function () {
 		"my-qr-reader",
 		{ fps: 10, qrbos: 250 }
 	);
-	htmlscanner.render(onScanSuccess);
+	htmlscanner.render({ facingMode: "environment" } ,onScanSuccess);
 });
+
+
+
+// html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
