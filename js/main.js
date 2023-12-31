@@ -62,7 +62,7 @@ const qrCodeSuccessCallback = (decodedText, decodedResult) => {
       redirectionOccured = true; // Set flag to true to prevent further redirections
       const url = decodedText.match(/(https?:\/\/[^ ]+)/)[1];
       window.location.href = url;
-      // html5QrCode.stop();
+      html5QrCode.stop();
     }
 
 
