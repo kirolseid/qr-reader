@@ -14,17 +14,23 @@ function domReady(fn) {
 domReady(function () {
 
 	// If found you qr code
-	function onScanSuccess(decodeText, decodeResult) {
-		alert("You Qr is : " + decodeText, decodeResult);
-	}
 
-	let htmlscanner = new Html5QrcodeScanner(
+  let htmlscanner = new Html5QrcodeScanner(
 		"my-qr-reader",
 		{ fps: 10, qrbos: 250 }
 	);
-	htmlscanner.render({ facingMode: "environment" } ,onScanSuccess);
+
+  htmlscanner.start({ facingMode: "environment" }, config, function onScanSuccess(decodeText, decodeResult) {
+		alert("You Qr is : " + decodeText, decodeResult);
+	}
+
+);
+
+
+	
+	
+	htmlscanner.render(onScanSuccess);
 });
 
 
 
-// html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
