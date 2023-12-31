@@ -56,7 +56,7 @@ const html5QrCode = new Html5Qrcode(
   "my-qr-reader", { formatsToSupport: [ Html5QrcodeSupportedFormats.QR_CODE ] });
 const qrCodeSuccessCallback = (decodedText, decodedResult) => {
     /* handle success */
-		alert("You Qr is : " + decodedText, decodedResult);
+		// alert("You Qr is : " + decodedText, decodedResult);
 
     if (!redirectionOccured) {
       redirectionOccured = true; // Set flag to true to prevent further redirections
