@@ -21,54 +21,89 @@
 
 
 
-const main = () => {
-	const body = document.querySelector('.body');
+// const main = () => {
+// 	const body = document.querySelector('.body');
   
-  const showPage = () => {
-    setTimeout(() => {
-      body.classList.remove('loading');
-    }, 15000000)
+//   const showPage = () => {
+//     setTimeout(() => {
+//       body.classList.remove('loading');
+//     }, 15000000)
+//   }
+  
+//   showPage();
+// }
+
+// window.addEventListener('load', main);
+
+
+
+// const html5QrCode = new Html5Qrcode("reader");
+// const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+//     /* handle success */
+
+//     console.log(`QR code scanned: ${decodedText}`);
+
+//   // Redirect only if redirection hasn't occurred
+//   if (!redirectionOccured) {
+//     redirectionOccured = true; // Set flag to true to prevent further redirections
+
+//     // Extract URL from the scan result
+//     const url = decodedText.match(/(https?:\/\/[^ ]+)/)[1];
+
+//     // Redirect to the scanned URL
+//     window.location.href = url;
+
+//     // Stop the scanner after redirection
+//     scanner.stop();
+//   }
+// };
+// const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+
+
+// function startScan(){
+//   html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
+// }
+
+
+
+
+
+
+
+// Initialize the scanner
+const scanner = new Html5QrcodeScanner(
+  
+  "camera",
+  {
+    exact: "environment",
+    fps: 10, // Frame rate
+    qrbox: 250, // QR code box size
+    quietZone: 1, // Quiet zone around the QR code
+  },
+  /* Optional errorCallback */
+  function (error) {
+    console.log(error);
   }
-  
-  showPage();
-}
+);
 
-window.addEventListener('load', main);
+let redirectionOccured = false; // Flag to track redirection
 
-
-
-const html5QrCode = new Html5Qrcode("reader");
-const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-    /* handle success */
-
-    console.log(`QR code scanned: ${decodedText}`);
+// Start the scanning process
+scanner.render((decodedText, decodedResult) => {
+  console.log(`QR code scanned: ${decodedText}`);
 
   // Redirect only if redirection hasn't occurred
   if (!redirectionOccured) {
     redirectionOccured = true; // Set flag to true to prevent further redirections
-
-    // Extract URL from the scan result
     const url = decodedText.match(/(https?:\/\/[^ ]+)/)[1];
-
-    // Redirect to the scanned URL
     window.location.href = url;
-
-    // Stop the scanner after redirection
     scanner.stop();
   }
-};
-const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-
-
-function startScan(){
-  html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
+});
+// Check if device supports camera
+if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+  scanMessage.innerHTML = "Camera access not supported!";
 }
-
-
-
-
-
-
 
 
 
