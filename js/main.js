@@ -29,24 +29,36 @@
 
 
 
-function onScanSuccess(decodedText, decodedResult) {
-  // handle the scanned code as you like, for example:
-		alert("You Qr is : " + decodedText, decodedResult);
+// function onScanSuccess(decodedText, decodedResult) {
+//   // handle the scanned code as you like, for example:
+// 		alert("You Qr is : " + decodedText, decodedResult);
 
-  // console.log(`Code matched = ${decodedText}`, decodedResult);
-}
+//   // console.log(`Code matched = ${decodedText}`, decodedResult);
+// }
 
-let config = {
-  fps: 10,
-  qrbox: {width: 100, height: 100},
-  rememberLastUsedCamera: true,
-  // Only support camera scan type.
-  supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
-};
+// let config = {
+//   fps: 10,
+//   qrbox: {width: 100, height: 100},
+//   rememberLastUsedCamera: true,
+//   // Only support camera scan type.
+//   supportedScanTypes: [Html5QrcodeScanType.SCAN_TYPE_CAMERA]
+// };
 
-let html5QrcodeScanner = new Html5QrcodeScanner(
-  "my-qr-reader", config, /* verbose= */ false);
-html5QrcodeScanner.render(onScanSuccess);
+// let html5QrcodeScanner = new Html5QrcodeScanner(
+//   "my-qr-reader", config, /* verbose= */ false);
+// html5QrcodeScanner.render(onScanSuccess);
 
 
 // html5QrCode.start({ facingMode: "environment" });
+
+const html5QrCode = new Html5Qrcode(
+  "reader", { formatsToSupport: [ Html5QrcodeSupportedFormats.QR_CODE ] });
+const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+    /* handle success */
+		alert("You Qr is : " + decodedText, decodedResult);
+
+};
+const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+
+// If you want to prefer front camera
+html5QrCode.start({ facingMode: "user" }, config, qrCodeSuccessCallback);
