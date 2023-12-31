@@ -52,7 +52,7 @@
 // html5QrCode.start({ facingMode: "environment" });
 
 const html5QrCode = new Html5Qrcode(
-  "reader", { formatsToSupport: [ Html5QrcodeSupportedFormats.QR_CODE ] });
+  "my-qr-reader", { formatsToSupport: [ Html5QrcodeSupportedFormats.QR_CODE ] });
 const qrCodeSuccessCallback = (decodedText, decodedResult) => {
     /* handle success */
 		alert("You Qr is : " + decodedText, decodedResult);
