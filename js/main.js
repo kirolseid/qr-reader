@@ -21,6 +21,21 @@
 
 
 
+const main = () => {
+	const body = document.querySelector('.body');
+  
+  const showPage = () => {
+    setTimeout(() => {
+      body.classList.remove('loading');
+    }, 15000000)
+  }
+  
+  showPage();
+}
+
+window.addEventListener('load', main);
+
+
 
 // Initialize the scanner
 const scanner = new Html5QrcodeScanner(
@@ -37,9 +52,11 @@ const scanner = new Html5QrcodeScanner(
 );
 
 let redirectionOccured = false; // Flag to track redirection
-
+// const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+//   /* handle success */
+// };
 // Start the scanning process
-scanner.render((decodedText, decodedResult) => {
+const qrCodeSuccessCallback = scanner.render((decodedText, decodedResult) => {
   console.log(`QR code scanned: ${decodedText}`);
 
   // Redirect only if redirection hasn't occurred
@@ -56,6 +73,8 @@ scanner.render((decodedText, decodedResult) => {
     scanner.stop();
   }
 });
+
+scanner.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
 // Check if device supports camera
 if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
   scanMessage.innerHTML = "Camera access not supported!";
