@@ -1,93 +1,41 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading...</title>
-
-    <style>
-     body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.container {
-    width: 500px;
-    max-width: 100vw;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.logo {
-    margin-bottom: 50px;
-}
-
-.logo img {
-    width: 200px;
-    height: auto;
-}
-
-.loading-bar {
-    width: 100%;
-    height: 10px;
-    background-color: #ddd;
-    border-radius: 5px;
-}
-
-.progress {
-    width: 0;
-    height: 10px;
-    background-color: #333;
-    border-radius: 5px;
-    animation: progress 5s ease-in-out infinite;
-}
-
-@keyframes progress {
-    0% {
-        width: 0;
-    }
-    50% {
-        width: 50%;
-    }
-    100% {
-        width: 100%;
-    }
-}
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Scanner</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
+
+  <!-- <div class="body loading">
+    <div id="loading-msg">
+      <div class="msg">
+        <div class="theme">
+          <img class="img-fluid" src="/images/Group 42.png" alt="">
+        </div>
+
         <div class="logo">
-            <img class="im" src="images/image 9.png" alt="Your Company Logo">
+          <img src="/images/image 9.png" alt="">
+
         </div>
-        <div class="loading-bar">
-            <div class="progress"></div>
+        <div class="spin">
+          <span></span>
         </div>
+      </div>
     </div>
-    <script>
-const progressBar = document.querySelector('.progress');
+  </div>
+  -->
 
-let progress = 0;
 
-const animateProgress = () => {
-    progress++;
-    if (progress > 100) {
-        // progress = 0;
-    window.location.href = '/home.html';
 
-    }
-    progressBar.style.width = `${progress}%`;
-    requestAnimationFrame(animateProgress);
-};
+  <div id="camera"></div>
+  <p id="scan-message">Scan a QR code to begin.</p>
+  <script src="js/html5-qrcode.min.js"></script>
 
-animateProgress();
+  <script src="js/main.js"></script>
 
-    </script>
 </body>
 </html>
